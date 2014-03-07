@@ -11,10 +11,17 @@ describe "Static pages" do
 		end		
 
 
-		it "should have the right title" do
+		it "should have the base title" do
 
 			visit '/static_pages/home'
-			page.should have_title('Ruby on Rails Tutorial Sample App | Home')
+			page.should have_title('Ruby on Rails Tutorial Sample App')
+
+		end
+
+		it "should not have a cutom page title" do
+
+			visit '/static_pages/home'
+			page.should_not have_title('| Home')
 
 		end
 
